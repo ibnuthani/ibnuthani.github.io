@@ -1,0 +1,248 @@
+:root{
+  --bg:#0f1724;
+  --card:#0b1220;
+  --muted:#9aa4b2;
+  --accent:#6ee7b7;
+  --glass: rgba(255,255,255,0.03);
+  --radius:12px;
+  --container:1100px;
+  font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background: linear-gradient(180deg, #071021 0%, #0b1220 100%);
+  color: #e6eef6;
+  line-height:1.5;
+  font-size:16px;
+}
+
+/* Container */
+.container{
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.site-header{
+  position:sticky;
+  top:0;
+  background: rgba(6,10,16,0.4);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  z-index:50;
+}
+.header-inner{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+.brand{
+  display:inline-block;
+  font-weight:700;
+  text-decoration:none;
+  font-size:1.2rem;
+  color:white;
+}
+
+/* nav */
+.nav{
+  display:flex;
+  gap:1rem;
+}
+.nav a{
+  color:var(--muted);
+  text-decoration:none;
+  padding:.5rem .75rem;
+  border-radius:8px;
+  font-weight:600;
+}
+.nav a:hover{
+  color:#fff;
+  background: rgba(255,255,255,0.02)
+}
+
+/* mobile toggle */
+.nav-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  color:white;
+  font-size:1.6rem;
+}
+
+/* HERO */
+.hero{
+  width: 100%;
+  padding:4rem 0;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  gap:2rem;
+  flex-wrap:wrap;
+}
+.container-hero-inner{
+  flex:1;
+  min-width:260px;
+  max-width:600px;
+  text-align:left;
+}
+.name{
+  font-size:2.5rem;
+  margin-bottom:.5rem;
+}
+.tagline{color:var(--muted)}
+.profile-img{
+  flex:1;
+  min-width:220px;
+  max-width:380px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.profile-img img{
+  width:100%;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+/* Buttons */
+.btn{
+  background:var(--accent);
+  color:var(--bg);
+  padding:.6rem 1rem;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:700;
+  margin-right:.6rem;
+}
+.btn-outline{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:#fff;
+}
+
+/* ABOUT */
+.about{padding:3rem 0}
+.lead{color:var(--muted); font-size:1.05rem}
+
+.skills-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.skill{
+  background:var(--glass);
+  padding:1rem;
+  border-radius:12px;
+}
+.skill p{color:var(--muted)}
+
+/* PROJECTS */
+.projects{padding:3rem 0}
+.projects-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap:1rem;
+  margin-top:1rem;
+}
+.project-card{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  padding:1rem;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,0.03);
+  transition: .3s ease;
+}
+.project-card:hover{
+  border-color:var(--accent);
+  transform:translateY(-3px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* CONTACT */
+.contact{padding:3rem 0}
+
+.contact-grid{
+  display:grid;
+  grid-template-columns: 1fr 400px;
+  gap:2rem;
+}
+.contact a{color:var(--accent)}
+.contact-form label{
+  display:block;
+  margin:1rem 0 .4rem;
+  font-weight:600;
+  color:var(--muted);
+}
+.contact-form input,
+.contact-form textarea{
+  width:100%;
+  padding:.75rem;
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.06);
+  background:transparent;
+  color:white;
+}
+
+.contact-form button{
+  margin-top:1rem;
+  background:var(--accent);
+  color:black;
+  padding:.7rem 1rem;
+  border-radius:10px;
+  font-weight:700;
+  border:none;
+  cursor:pointer;
+}
+
+/* Footer */
+footer{text-align:center; margin-top:3rem}
+.social-links{
+  display:flex;
+  justify-content:center;
+  gap:1rem;
+  margin-bottom:1rem;
+}
+.copyright{
+  color:var(--muted);
+  font-size:.9rem;
+}
+
+/* RESPONSIVE FIXES */
+@media (max-width:900px){
+  .container{padding:1.2rem}
+
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    height:auto;
+  }
+  .container-hero-inner{text-align:center}
+  .profile-img{max-width:260px}
+
+  .contact-grid{
+    grid-template-columns:1fr;
+  }
+}
+
+@media (max-width:700px){
+  /* mobile nav */
+  .nav{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    right:1rem;
+    top:60px;
+    padding:1rem;
+    background:#0b1220;
+    border-radius:10px;
+  }
+  .nav.open{display:flex}
+  .nav-toggle{display:block}
+}
